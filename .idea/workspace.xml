@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="24547e34-7f33-4ad8-9b5f-3be26ccc79dd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_27_112348_create_articles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_27_112348_create_articles_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +164,9 @@
       <workItem from="1606326346980" duration="7297000" />
       <workItem from="1606412775089" duration="4543000" />
       <workItem from="1606493979870" duration="5851000" />
-      <workItem from="1606673849356" duration="2772000" />
+      <workItem from="1606673849356" duration="4909000" />
+      <workItem from="1606750254319" duration="2614000" />
+      <workItem from="1606756663060" duration="3430000" />
     </task>
     <servers />
   </component>
