@@ -19,11 +19,13 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
-
+Route::post('register', 'App\Http\Controllers\UserController@register');
+Route::post('login', 'App\Http\Controllers\UserController@authenticate');
 Route::get('articles', 'App\Http\Controllers\ArticleController@index');
-Route::get('articles/{article}', 'App\Http\Controllers\ArticleController@show');
-Route::post('articles', 'App\Http\Controllers\ArticleController@store');
-Route::put('articles/{article}', 'App\Http\Controllers\ArticleController@update');
-Route::delete('articles/{article}', 'App\Http\Controllers\ArticleController@delete');
-
-
+Route::group(['middleware' => ['jwt.verify']], function () {
+    Route::get('user', 'App\Http\Controllers\UserController@getAuthenticatedUser');
+    Route::get('articles/{article}', 'App\Http\Controllers\ArticleController@show');
+    Route::post('articles', 'App\Http\Controllers\ArticleController@store');
+    Route::put('articles/{article}', 'App\Http\Controllers\ArticleController@update');
+    Route::delete('articles/{article}', 'App\Http\Controllers\ArticleController@delete');
+});
