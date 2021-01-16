@@ -9,6 +9,14 @@ use App\Http\Resources\ArticleCollection;
 
 class ArticleController extends Controller
 {
+    public static $rules=[
+        'title' => 'required|string|unique:articles|max:255',
+        'body' => 'required',
+    ];
+    public static $messages=[
+        'required' => 'El campo :attribute es obligatorio.',
+    ];
+
     public function index()
     {
         return response()->json(new ArticleCollection(Article::paginate(5)));
@@ -21,6 +29,7 @@ class ArticleController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate(self::$rules, self::$messages);
         $article = Article::create($request->all());
         return response()->json($article, 201);
     }
