@@ -17,10 +17,11 @@ class Comment extends JsonResource
         return [
             'id' => $this->id,
             'text' => $this->name,
+            'user' => "/api/users/" . $this->user_id,
+            'article' => "/api/articles/" . $this->article_id,
             'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
-            'user_id' => "/api/users/" . $this->user_id,
-            'article_id' => "/api/articles/" . $this->article_id
+            'updated_at' => $this->updated_at
+
         ];
     }
 }

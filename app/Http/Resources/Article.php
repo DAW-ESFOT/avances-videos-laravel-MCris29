@@ -3,8 +3,6 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Models\User;
-use App\Models\Category;
 
 class Article extends JsonResource
 {
@@ -20,10 +18,10 @@ class Article extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'body' => $this->body,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
             'user_id'=>"/api/users/".$this->user_id,
-            'category_id'=>"/api/categories/".$this->category_id
+            'category_id'=>"/api/categories/".$this->category_id,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at
         ];
     }
 }
