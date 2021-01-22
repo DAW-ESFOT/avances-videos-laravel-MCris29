@@ -16,11 +16,13 @@ class ArticleController extends Controller
 
     public function index()
     {
+//        $this->authorize('viewAny', Article::class);
         return response()->json(new ArticleCollection(Article::paginate(5)));
     }
 
     public function show(Article $article)
     {
+        $this->authorize('view', $article);
         return new ArticleResource($article);
     }
 
@@ -32,14 +34,13 @@ class ArticleController extends Controller
 
     public function store(Request $request)
     {
+        $this->authorize('create', Article::class);
         $request->validate([
             'title' => 'required|string|unique:articles|max:255',
             'body' => 'required',
             'category_id' => 'required|exists:categories,id',
             'image' => 'required|image|dimensions:min_width=200,min_height=200',
         ], self::$messages);
-
-//        $article = Article::create($request->all());
 
         $article = new Article($request->all());
         $path = $request->image->store('public/articles');
@@ -52,6 +53,7 @@ class ArticleController extends Controller
 
     public function update(Request $request, Article $article)
     {
+        $this->authorize('update', $article);
         $request->validate([
             'title' => 'required|string|unique:articles,title,' . $article->id . '|max:255',
             'body' => 'required',
@@ -63,6 +65,7 @@ class ArticleController extends Controller
 
     public function delete(Article $article)
     {
+        $this->authorize('delete', $article);
         $article->delete();
         return response()->json(null, 204);
     }
