@@ -2,6 +2,13 @@
 
 return [
 
+    'driver'=>env('MAIL_DRIVER', 'smtp'),
+
+    'host'=>env('MAIL_HOST', 'smtp.mailtrap.io'),
+
+
+    'port'=>env('MAIL_PORT', 587),
+
     /*
     |--------------------------------------------------------------------------
     | Default Mailer
@@ -84,8 +91,12 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'example@example.com'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
+    ],
+    'to' =>[
+        'address' => 'crismax0629@gmail.com',
+        'name' =>'Cristian'
     ],
 
     /*
